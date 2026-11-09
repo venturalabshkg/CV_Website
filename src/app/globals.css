@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f6f4;
+  --bg-elevated: #fffcf8;
+  --fg: #1c1c1a;
+  --muted: #6f6d68;
+  --line: rgba(28, 28, 26, 0.12);
+  --line-strong: rgba(28, 28, 26, 0.45);
+  --chip: rgba(28, 28, 26, 0.04);
+  --accent: #1c1c1a;
+  --danger: #9f1239;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #080808;
+  --bg-elevated: #101010;
+  --fg: #f3f2ee;
+  --muted: #a3a199;
+  --line: rgba(243, 242, 238, 0.12);
+  --line-strong: rgba(243, 242, 238, 0.55);
+  --chip: rgba(243, 242, 238, 0.045);
+  --accent: #f3f2ee;
+  --danger: #fb7185;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-chip: var(--chip);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--fg); color: var(--bg); }
+
+a { color: inherit; }
+
+button, input, textarea, select { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 5px,
+    var(--line) 5px,
+    var(--line) 6px
+  );
+}
+
+.wordmark {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-strong);
+  letter-spacing: -0.07em;
+  line-height: 0.78;
+}
+
+.prose-custom { font-size: 1.02rem; line-height: 1.75; }
+.prose-custom > :first-child { margin-top: 0; }
+.prose-custom h2, .prose-custom h3 { letter-spacing: -0.03em; line-height: 1.2; margin: 1.6em 0 0.45em; }
+.prose-custom h2 { font-size: 1.45rem; }
+.prose-custom h3 { font-size: 1.15rem; }
+.prose-custom p, .prose-custom ul, .prose-custom ol, .prose-custom pre, .prose-custom blockquote { margin: 0.85em 0; }
+.prose-custom a { text-decoration: underline; text-underline-offset: 3px; }
+.prose-custom ul, .prose-custom ol { padding-left: 1.2rem; }
+.prose-custom ul { list-style: disc; }
+.prose-custom ol { list-style: decimal; }
+.prose-custom code { font-family: var(--font-mono); font-size: 0.88em; }
+.prose-custom pre { overflow: auto; border: 1px solid var(--line); padding: 0.9rem 1rem; background: var(--chip); }
+.prose-custom pre code { font-size: 0.82rem; }
+.prose-custom blockquote { border-left: 1px solid var(--line-strong); padding-left: 1rem; color: var(--muted); }
+.prose-custom img { max-width: 100%; height: auto; }
+
+.contrib-0 { background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.contrib-1 { background: color-mix(in srgb, var(--fg) 28%, transparent); }
+.contrib-2 { background: color-mix(in srgb, var(--fg) 48%, transparent); }
+.contrib-3 { background: color-mix(in srgb, var(--fg) 70%, transparent); }
+.contrib-4 { background: var(--fg); }
+
+.on-fg {
+  background: var(--fg);
+  color: var(--bg);
+}
